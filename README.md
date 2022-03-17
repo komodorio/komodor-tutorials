@@ -41,7 +41,7 @@ These deployment will NOT cause any issues outside of their immediate deployment
 
 - Coming soon
 
-## Future scenarios
+## Planned scenarios
 
 - Node issues
 - PVC issues
