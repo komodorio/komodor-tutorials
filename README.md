@@ -54,8 +54,3 @@ These deployment will NOT cause any issues outside of their immediate deployment
     - Datadog
     - Grafana
     - PagerDuty
-
-
-## How to Contibute
-
-Feel free to contribue and share any neat ways to break kubernetes or simulate a failure!
