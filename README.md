@@ -9,13 +9,17 @@ All services are prefixed with "komodor" so they're easy to spot and search for 
 ## Currently supported
 
 - Image Pull backoff
-    - imagepullbackoff.yaml
+    - Purpose: This deployment will simulate an immage pull backoff issue
+    - File: imagepullbackoff.yaml
 - Out of Memory
-    - oom.yaml
+    - Purpose: Simulates an OOM, afterone minute this service will run out of memory
+    - File: oom.yaml
 - Crash Loop BackOff
-    - crashloopbackoff.yaml
+    - Purpose: This deployment will create a crash loop backoff.
+    - File: crashloopbackoff.yaml
 - Create Container Config Error
-    - createcontainerconfigerror.yaml
+    - Purpose: This will simulate an issue with a config container.
+    - File: createcontainerconfigerror.yaml
 
 ## Demo/Training deployments
 
