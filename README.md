@@ -4,7 +4,9 @@
 
 Clone the repo, kubectl apply -f any of the demos to see them in action.
 
-All services are prefixed with "komodor" so they're easy to spot and search for if ever using in a customer environment/training
+All services are prefixed with "komodor" so they're easy to spot and search for if ever using in an environment with exsiting deployment.
+
+These deployment will NOT cause any issues outside of the immediate deployment, they will NOT crash nodes, or control or data plane services.
 
 ## Currently supported
 
