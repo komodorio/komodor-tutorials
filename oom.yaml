@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: komodor-oom
+  namespace: default
+  labels:
+    app: komodor-oom
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: komodor-oom
+  template:
+    metadata:
+      labels:
+        app: komodor-oom
+    spec:
+      containers:
+      - name: komodor-oom
+        image: polinux/stress
+        command: ["stress"]
+        args: ["--vm", "10", "--vm-bytes", "100M", "--vm-hang", "120", "--backoff", "10000000", "--verbose"]
+        resources:
+          requests:
+            memory: "120Mi"
+          limits:
+            memory: "120Mi"

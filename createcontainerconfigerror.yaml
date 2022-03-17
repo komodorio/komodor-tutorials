@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: komodor-create-container-config-error
+  namespace: default
+  labels:
+    app: komodor-create-error
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: komodor-create-error
+  template:
+    metadata:
+      labels:
+        app: komodor-create-error
+    spec:
+      containers:
+      - name: crash-demo
+        image: nginx:1.21.6
+        env: 
+        - name: SECRET_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: api-access-token
+              key: SECRET_TOKEN
