@@ -6,7 +6,7 @@ Clone the repo, kubectl apply -f any of the demos to see them in action.
 
 All services are prefixed with "komodor" so they're easy to spot and search for if ever using in an environment with exsiting deployment.
 
-These deployment will NOT cause any issues outside of the immediate deployment, they will NOT crash nodes, or control or data plane services.
+These deployment will NOT cause any issues outside of their immediate deployment, they will NOT crash nodes, or control/data plane services.
 
 ## Currently supported
 
@@ -41,8 +41,12 @@ These deployment will NOT cause any issues outside of the immediate deployment, 
 
 - Coming soon
 
-## Future supported scenarios
+## Future scenarios
 
+- Node issues
+- PVC issues
+- Service issues (Ingress, endpoints, LBs...)
+- Config map changes
 - Playbook scenarios
 - Integration scenarios
     - Sentry
@@ -50,3 +54,8 @@ These deployment will NOT cause any issues outside of the immediate deployment, 
     - Datadog
     - Grafana
     - PagerDuty
+
+
+## How to Contibute
+
+Feel free to contribue and share any neat ways to break kubernetes or simulate a failure!
