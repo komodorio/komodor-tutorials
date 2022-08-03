@@ -11,7 +11,7 @@ These deployment will NOT cause any issues outside of their immediate deployment
 ## Currently supported
 
 - Image Pull backoff
-    - Purpose: This deployment will simulate an immage pull backoff issue
+    - Purpose: This deployment will simulate an image pull backoff issue
     - File: imagepullbackoff.yaml
 - Out of Memory
     - Purpose: Simulates an OOM, afterone minute this service will run out of memory
