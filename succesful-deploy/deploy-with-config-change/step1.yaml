@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: features-configuration
+  name: komodor-features-configuration
 data:
   reportToDataLake: 'true'
   debug: 'false'
@@ -11,29 +11,29 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app: komo-configmap-deploy
+    app: komodor-configmap-deploy
   labels:
-    app: komo-configmap-deploy
-  name: komo-configmap-deploy
+    app: komodor-configmap-deploy
+  name: komodor-configmap-deploy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: komo-configmap-deploy
+      app: komodor-configmap-deploy
   template:
     metadata:
       labels:
-        app: komo-configmap-deploy
+        app: komodor-configmap-deploy
     spec:
       containers:
       - env:
         image: nginx:1.23.2
         name: nginx
         volumeMounts:
-          - name: features-configuration
+          - name: komodor-features-configuration
             mountPath: /usr/share/app/config
-            subPath: features-configuration
+            subPath: komodor-features-configuration
       volumes:
-      - name: features-configuration
+      - name: komodor-features-configuration
         configMap:
-          name: features-configuration
+          name: komodor-features-configuration
