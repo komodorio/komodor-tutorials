@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: memory_pressure
+  name: memory-pressure
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: memory_pressure
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: memory_pressure
+    spec:
+      containers:
+      - args:
+        - --vm
+        - "5"
+        - --vm-bytes
+        - 100M
+        - --vm-hang
+        - "120"
+        - --verbose
+        command:
+        - stress
+        env:
+        - name: DEMO
+          value: "True"
+        - name: DEPLOYED_AT
+          value: DEPLOYED_AT_PLACEHOLDER_VALUE
+        image: polinux/stress:latest
+        imagePullPolicy: IfNotPresent
+        name: erichment-processor
+        ports:
+        - containerPort: 443
+          name: https
+          protocol: TCP
+ #       resources:
+ #         limits:
+ #           cpu: 0.25
+ #           memory: 550Mi
+ #         requests:
+ #           cpu: 0.25
+ #           memory: 550Mi
+      nodeName: node-name
+      priorityClassName: high-priority
+      tolerations:
+      - key: node_under_perssure
+        operator: Exists
+
