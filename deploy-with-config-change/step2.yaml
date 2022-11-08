@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: features-configuration
+data:
+  reportToDataLake: 'true'
+  debug: 'true'
+  useAPIaccelerator: 'true'
+  sensitivity: '5'
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    app: komo-configmap-deploy
+  labels:
+    app: komo-configmap-deploy
+  name: komo-configmap-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: komo-configmap-deploy
+  template:
+    metadata:
+      labels:
+        app: komo-configmap-deploy
+    spec:
+      containers:
+      - env:
+        - name: HW_ACCELERATION_ENABLED
+          value: "True"
+        image: nginx:1.23.2
+        name: nginx
+        volumeMounts:
+          - name: features-configuration
+            mountPath: /usr/share/app/config
+            subPath: features-configuration
+      volumes:
+      - name: features-configuration
+        configMap:
+          name: features-configuration
