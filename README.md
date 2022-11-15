@@ -28,12 +28,6 @@ ads
 - Crash Loop Backoff
     - Purpose: This deployment will failed to start to simulate crashloopbackoff
     - File: failed-pods-scenarios/crashloopbackoff.yaml
-- Liveness Probes Failure
-    - Purpose: This deployment will failed to reply correct to the liveness probes
-    - File: failed-pods-scenarios/liveness-probes.yaml
-- Readiness Probes Failure
-    - Purpose: This deployment will failed to reply correct to the readiness probes
-    - File: failed-pods-scenarios/readiness-probes.yaml
 
 ## Demo/Training deployments
 
