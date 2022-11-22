@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: komodor-oomkilled
+  labels:
+    app: komodor-oomkilled
+  annotations:
+    app.komodor.com/app: https://github.com/komodorio-demo/caching-service
+    app.komodor.com/app.ref: ed6fa9756e64d1289abf663a6b40919071b76844
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: komodor-oomkilled
+  template:
+    metadata:
+      labels:
+        app: komodor-oomkilled
+    spec:
+      containers:
+      - name: komodor-oomkilled
+        image: polinux/stress
+        command: ["stress"]
+        args: ["--vm", "1", "--vm-bytes", "10M", "--vm-hang", "120", "--backoff", "10000000", "--verbose"]
+        resources:
+          requests:
+            memory: "20Mi"
+          limits:
+            memory: "20Mi"
