@@ -6,9 +6,9 @@ metadata:
     app: komodor-oomkilled
   annotations:
     app.komodor.com/app: https://github.com/komodorio-demo/caching-service
-    app.komodor.com/app.ref: ed6fa9756e64d1289abf663a6b40919071b76844
+    app.komodor.com/app.ref: ca5d82806b0c0f194fa0eb18b8e86bdedc25442f
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: komodor-oomkilled
@@ -21,9 +21,9 @@ spec:
       - name: komodor-oomkilled
         image: polinux/stress
         command: ["stress"]
-        args: ["--vm", "10", "--vm-bytes", "10M", "--vm-hang", "120", "--backoff", "10000000", "--verbose"]
+        args: ["--vm", "4", "--vm-bytes", "10M", "--vm-hang", "120", "--backoff", "100000", "--verbose"]
         resources:
           requests:
-            memory: "30Mi"
+            memory: "20Mi"
           limits:
-            memory: "60Mi"
+            memory: "20Mi"

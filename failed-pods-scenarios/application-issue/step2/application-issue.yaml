@@ -1,0 +1,78 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: komodor-python-script
+data:
+  python-script: |-
+    import time
+    import os
+    import logging
+
+    def start_service():
+        logging.info("starting service intialization")
+        initialize_connections()
+        logging.info("starting recieve connections")
+        run()
+
+    def run():
+        while True:
+            logging.info("running")
+            time.sleep(0.2)
+
+    def initialize_connections():
+        logging.info("starting service intialization")
+        fetch_configuration()
+        
+    def verify_connection(con):
+        raise Exception("VerificationError - insecure connection, can't validate TLS")
+
+    def fetch_configuration():
+        conn = create_connection()
+        verify_connection(conn)
+        return conn
+
+    def create_connection():
+        return conn_auth()
+
+    def conn_auth():
+        logging.info("connection verified")
+
+    if __name__ == "__main__":
+        start_service()
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    app: komo-application-error-step2
+    app.komodor.com/app: https://github.com/komodorio-demo/inventory-manager
+    app.komodor.com/app.ref: aa32954452b4b5fad1211711395dea3a5d33ca2f
+  labels:
+    app: komo-application-error
+  name: komo-application-error
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: komo-application-error
+  template:
+    metadata:
+      labels:
+        app: komo-application-error
+      annotations:
+        app: komo-application-error-step2
+    spec:
+      containers:
+      - env:
+        image: python:3.11-alpine
+        name: python
+        command: ["python"]
+        args: ["/usr/share/app/code.py"]
+        volumeMounts:
+          - name: komodor-python-script
+            mountPath: /usr/share/app/code.py
+            subPath: python-script
+      volumes:
+      - name: komodor-python-script
+        configMap:
+          name: komodor-python-script

@@ -6,29 +6,44 @@ data:
   python-script: |-
     import time
     import os
+    import logging
 
     def start_service():
+        logging.info("starting service intialization")
         initialize_connections()
+        logging.info("starting recieve connections")
+        run()
+
+    def run():
+        while True:
+            logging.info("running")
+            time.sleep(0.2)
 
     def initialize_connections():
+        logging.info("starting service intialization")
         fetch_configuration()
 
+
     def fetch_configuration():
-        create_connection()
+        conn = create_connection()
+        return conn
 
     def create_connection():
-        conn_auth()
+        return conn_auth()
 
     def conn_auth():
-        raise Exception("Can't perform the requested task - authentication error")
+        logging.info("connection verified")
 
-    start_service()
+    if __name__ == "__main__":
+        start_service()
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
     app: komo-application-error
+    app.komodor.com/app: https://github.com/komodorio-demo/inventory-manager
+    app.komodor.com/app.ref: 1a9cade740c6baf090f027d8e16747c5c9add55f
   labels:
     app: komo-application-error
   name: komo-application-error
