@@ -22,4 +22,8 @@ spec:
           - name: NGINX_HTTP_PORT_NUMBER
             value: "8080"
         name: nginx
-      nodeName: no-node
+        resources:
+          requests:
+            memory: "8Gi"
+          limits:
+            memory: "8Gi"

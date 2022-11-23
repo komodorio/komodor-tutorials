@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: komodor-failed-scheduling
+  labels:
+    app: komodor-failed-scheduling
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: komodor-failed-scheduling
+  template:
+    metadata:
+      labels:
+        app: komodor-failed-scheduling
+    spec:
+      containers:
+      - image: nginx:1.23.2
+        env:
+          - name: BITNAMI_DEBUG
+            value: "false"
+          - name: NGINX_HTTP_PORT_NUMBER
+            value: "8080"
+        name: nginx
+        resources:
+          requests:
+            memory: "60Mi"
+          limits:
+            memory: "60Mi"
