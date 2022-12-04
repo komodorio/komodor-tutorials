@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: komodor-oomkilled
-  namespace: default
   labels:
     app: komodor-oomkilled
 spec:

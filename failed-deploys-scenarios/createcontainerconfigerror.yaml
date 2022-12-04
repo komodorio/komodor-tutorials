@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: komodor-create-container-config-error
-  namespace: default
   labels:
     app: komodor-create-error
 spec:

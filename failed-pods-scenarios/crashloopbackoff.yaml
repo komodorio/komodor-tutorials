@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: komodor-crashloop
-  namespace: default
   labels:
     app: komodor-crashloop
 spec:
