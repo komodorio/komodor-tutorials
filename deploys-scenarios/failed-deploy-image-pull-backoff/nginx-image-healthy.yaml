@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: komodor-imagepull-backoff
+  labels:
+    app: komodor-imagepull-backoff
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: komodor-imagepull-backoff
+  template:
+    metadata:
+      labels:
+        app: komodor-imagepull-backoff
+    spec:
+      containers:
+      - name: imagepull-demo
+        image: nginx:1.21.0
