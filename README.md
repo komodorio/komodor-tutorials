@@ -18,31 +18,12 @@ Configure alerts to get alert in each failure.
 ## Scenarios
 
 ### Deploy Scenarios
-
-- Image Pull backoff
-    - Purpose: This deploy, use an non exist image and cause ImagePullBackoff
-    - [Link](./deploys-scenarios/failed-deploy-image-pull-backoff).
-  
-- Create Container Config Error
-    - Purpose: This deploy, using a non exist secret.
-    - [Link](./deploys-scenarios/failed-deploy-creation-config-error).
+- [Image Pull backoff](./deploys-scenarios/failed-deploy-image-pull-backoff)  
+- [Create Container Config Error](./deploys-scenarios/failed-deploy-creation-config-error)
+- [Deploy with a config map change](./deploys-scenarios/a-simple-deploy-with-a-configmap-change/)
 
 
 ### Failure Scenarios
-
-  
-- Out of Memory
-    - Purpose: This scenario, runs a service which fails because of OOMKilled.
-    - [Link](./failure-scenarios/OOMKilled).
-  
-- Application Issue
-    - Purpose: This scenario, cause an application failure with an informative logs messages.
-    - [Link](./failure-scenarios/application-error-with-exception).
-  
-- Failed Scheduling
-    - Purpose: This scenario, spawns a pod that can't run on any node within the cluster.
-    - [Link](./failure-scenarios/failed-to-schedule-pods).
-  
-- Crash Loop Backoff
-    - Purpose: This scenario, cause a deployment to go into CrashLoopBackoff state.
-    - [Link](./failure-scenarios/crashloop).
+- [Out of Memory](./failure-scenarios/OOMKilled)
+- [Application Issue](./failure-scenarios/application-error-with-exception)
+- [Failed Scheduling](./failure-scenarios/failed-to-schedule-pods)
