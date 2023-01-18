@@ -1,10 +1,10 @@
 # Scenario: My Application' Pods Failed to Schedule
 
 ## Why Is It Important?
-Pods & Nodes got constraints that make the scheduling job not an easy task. When there is no node for a pod to run on, the pod fails with a FailedScheduling which can cause severe impact,  espcially during scaling and rollout of a new version.
+Pods & Nodes  constraints can make the scheduling job challengin. When there is no node for a pod to run on, the pod fails with a **FailedScheduling** which causes a negative impact, espcially during scaling and rollout of a new version.
 
 ## Real Life Example
-1. During scale up,  many pods spawn to support the load, however if there are no available nodes in the cluster, the users will not be served.
+1. During scale up, many pods spawn to support the load, however if there are no available nodes in the cluster, the users will not be served.
 2. An applicaiton pod requests a large amount of memory, which is unavailable, causing rollout to fail.
 
 ## How Komodor Helps?
