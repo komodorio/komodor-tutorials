@@ -1,10 +1,10 @@
 # Scenario: Application failed because of OOMKilled
 
 ## Why Is It Important?
-OOMKilled is an error that is very are to discover. It is transient and requires some expertise to find. It also can cause a massive impact on the service itself and other services in the same cluster (noisy neighbor).
+OOMKilled is an error that may be difficult to discover. It is transient and requires some expertise to find. It can cause a massive impact on the service itself and other services in the same cluster (noisy neighbor).
 
 ## Real-Life Example
-The application starts to be killed because the container uses more than its memory limit. It's not clear what is the failure reason and if it was caused by an application issue or infrastructure issue. 
+The application starts to be "killed" because the container exceeds the memory limit. The reason for the failure is not clear. Was the error caused by an application issue or infrastructure issue. 
 
 ## How Komodor Helps?
 Komodor detects the OOMKilled failure and immediately shows the reason even if it's gone from the cluster. Komodor also correlates the OOMkilled with infrastructure failure and lets you know if it's an application issue or an infrastructure issue. 
