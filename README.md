@@ -11,7 +11,7 @@ Pick a scenario from the list below, apply it to your cluster. Check in Komodor 
 
 ## Before Starting
 
-Make sure you got the Komodor agent running and configured on your clusters.
+Make sure you got the [Komodor agent running](https://docs.komodor.com/Learn/Install-Komodor-Agent.html) and configured on your clusters.
 Configure alerts to get alert in each failure.
 
 
