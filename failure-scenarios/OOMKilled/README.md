@@ -19,7 +19,7 @@ Komodor shows the failure reason explicitly with all the relevant information fo
 ## How To Run?
 1. Apply [oom.yaml](oom.yaml)
    ``` bash
-   kubectl apply -f oom.yaml
+   kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/failure-scenarios/OOMKilled/oom.yaml
    ```
 
     It takes ~2 minutes for the OOM the start.

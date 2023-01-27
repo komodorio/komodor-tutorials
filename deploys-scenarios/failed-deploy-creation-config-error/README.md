@@ -17,13 +17,13 @@ For each deploy event you have the full information about the deploy and why it 
 
 
 ## How To Run?
-1. Apply a deployment with healthy status [healthy-deploy.yaml](healthy-deploy.yaml)
+1. Apply a deployment with healthy status:
    ``` bash
-   kubectl apply -f healthy-deploy.yaml
+   kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/deploys-scenarios/failed-deploy-creation-config-error/healthy-deploy.yaml
    ```
-2. Apply the deployment with a bad ref to a secret [createcontainerconfigerror.yaml](createcontainerconfigerror.yaml)
-      ``` bash
-   kubectl apply -f createcontainerconfigerror.yaml
+2. Apply the deployment with a bad ref to a secret:
+    ``` bash
+   kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/deploys-scenarios/failed-deploy-creation-config-error/createcontainerconfigerror.yaml
    ```
 3. [Go to the relevant service in Komodor](https://app.komodor.com/services?textFilter=komodor-create-container-config-error) and click on the deploy event created.
    

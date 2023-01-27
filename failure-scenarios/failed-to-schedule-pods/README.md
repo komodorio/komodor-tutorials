@@ -19,15 +19,15 @@ For each deploy events you have the full information about the deploy:
 Note: This pod requires 500Gi of memory, please makes sure your autoascaler doesn't allow this size of nodes.
 
 ## How To Run?
-1. Apply an healthy deployment [healthy-deploy.yaml](healthy-deploy.yaml)
+1. Apply an healthy deployment:
    ``` bash
-   kubectl apply -f healthy-deploy.yaml
+   kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/failure-scenarios/failed-to-schedule-pods/healthy-deploy.yaml
    ```
 
 
 2. Apply [failed-scheduling.yaml](failed-scheduling.yaml)
    ``` bash
-   kubectl apply -f failed-scheduling.yaml
+   kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/failure-scenarios/failed-to-schedule-pods/failed-scheduling.yaml
    ```
 
     It takes at least 10 minutes for Kubernetes to mark this deploy as failed.

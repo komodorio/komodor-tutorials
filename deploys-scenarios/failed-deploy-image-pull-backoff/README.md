@@ -21,13 +21,13 @@ You can click on the diff to see the configuration changes made during this depl
 
 
 ## How To Run?
-1. Apply an healthy deployment [nginx-image-healthy.yaml](nginx-image-healthy.yaml)
+1. Apply an healthy deployment:
 ``` bash
-kubectl apply -f nginx-image-healthy.yaml
+kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/deploys-scenarios/failed-deploy-image-pull-backoff/nginx-image-healthy.yaml
 ```
-2. Apply the same deployment with a wrong image [imagepullbackoff.yaml](imagepullbackoff.yaml)
+1. Apply the same deployment with a wrong image tag:
 ``` bash
-kubectl apply -f imagepullbackoff.yaml
+kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/deploys-scenarios/failed-deploy-image-pull-backoff/imagepullbackoff.yaml
 ```
-3. [Go to the relevant service in Komodor](https://app.komodor.com/services?textFilter=komodor-imagepull-backoff) and click on the deploy event created.
+1. [Go to the relevant service in Komodor](https://app.komodor.com/services?textFilter=komodor-imagepull-backoff) and click on the deploy event created.
    
