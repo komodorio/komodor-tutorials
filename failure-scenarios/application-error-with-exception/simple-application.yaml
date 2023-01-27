@@ -23,7 +23,7 @@ data:
         conn_auth()
 
     def conn_auth():
-        raise Exception("Can't perform the requested task - authentication error")
+        logging.info("connection established")
 
     start_service()
     while True:
@@ -51,7 +51,7 @@ spec:
       containers:
       - env:
         - name: LOG_LEVEL
-          value: "DEBUG"
+          value: "INFO"
         image: python:3.11-alpine
         name: python
         command: ["python"]

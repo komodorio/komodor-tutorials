@@ -23,8 +23,13 @@ You can also view logs to debug the application:
 
 
 ## How To Run?
-1. Apply [application-error.yaml](application-error.yaml)
+1. Apply a healthy deployment:
+``` bash
+kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/failure-scenarios/application-error-with-exception/simple-application.yaml
+```
+
+1. Apply the same deployment with an application issue:
 ``` bash
 kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/failure-scenarios/application-error-with-exception/application-error.yaml
 ```
-2. [Go to the relevant service in Komodor](https://app.komodor.com/services?textFilter=komo-application-error) and click on the availbility issue created.
+1. [Go to the relevant service in Komodor](https://app.komodor.com/services?textFilter=komo-application-error) and click on the availbility issue created.
