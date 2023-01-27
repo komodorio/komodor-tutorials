@@ -25,6 +25,6 @@ You can also view logs to debug the application:
 ## How To Run?
 1. Apply [application-error.yaml](application-error.yaml)
 ``` bash
-kubectl apply -f application-error.yaml
+kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/failure-scenarios/application-error-with-exception/application-error.yaml
 ```
 2. [Go to the relevant service in Komodor](https://app.komodor.com/services?textFilter=komo-application-error) and click on the availbility issue created.

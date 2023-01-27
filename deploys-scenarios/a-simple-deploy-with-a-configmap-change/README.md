@@ -17,7 +17,13 @@ For each deploy events you have the full information about the deploy:
 
 
 ## How To Run?
-1. Apply [step1.yaml](step1.yaml)
-2. Apply [step2.yaml](step2.yaml)
+1. Apply step1.yaml
+``` bash
+kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/deploys-scenarios/a-simple-deploy-with-a-configmap-change/step1.yaml
+```
+2. Apply step2.yaml
+``` bash
+kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/deploys-scenarios/a-simple-deploy-with-a-configmap-change/step2.yaml
+```
 3. [Go to the relevant service in Komodor](https://app.komodor.com/services?textFilter=komodor-configmap-deploy) and click on the deploy event created.
    
