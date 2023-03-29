@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: komodor-ready-live-example
+spec:
+  selector:
+    matchLabels:
+      app: komodor-ready-live-example
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: komodor-ready-live-example
+    spec:
+      containers:
+      - name: restaurants-api
+        image: guykomodor/public-application:0.0.1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+          name: https
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 5
+          httpGet:
+            path: /ready
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 3
+          timeoutSeconds: 5
+        livenessProbe:
+          failureThreshold: 5
+          httpGet:
+            path: /live
+            port: 8080
+          initialDelaySeconds: 0
+          periodSeconds: 3
+          timeoutSeconds: 5
+        env:
+          - name: FAIL_READY
+            value: "True"
+          - name: FAIL_LIVE
+            value: "True"
+          - name: LIVE_FAIL_MSG
+            value: "liveness probe failed"
+          - name: READY_FAIL_MSG
+            value: "readiness probe failed"
