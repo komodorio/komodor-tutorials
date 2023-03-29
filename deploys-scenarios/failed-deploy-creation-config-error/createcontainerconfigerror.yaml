@@ -21,5 +21,12 @@ spec:
         - name: SECRET_TOKEN
           valueFrom:
             secretKeyRef:
-              name: api-access-token
+              name: api-access-tokenn
               key: SECRET_TOKEN
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: api-access-token
+data:
+  SECRET_TOKEN: dmFsdWUtMg0KDQo=
