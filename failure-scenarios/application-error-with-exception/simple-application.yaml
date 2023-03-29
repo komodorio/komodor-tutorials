@@ -10,6 +10,8 @@ data:
     import logging
     logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
+    exit_code = int(os.getenv('EXIT_CODE')) if os.getenv('EXIT_CODE') else 0
+
     def start_service():
         initialize_connections()
 
@@ -23,8 +25,12 @@ data:
         conn_auth()
 
     def conn_auth():
+      if exit_code == 0:
         logging.info("connection established")
+      else:
+        raise Exception("Can't perform the requested task - authentication error")
 
+    time.sleep(10)
     start_service()
     while True:
         logging.info("service loop")
@@ -52,6 +58,8 @@ spec:
       - env:
         - name: LOG_LEVEL
           value: "INFO"
+        - name: EXIT_CODE
+          value: "0"
         image: python:3.11-alpine
         name: python
         command: ["python"]
