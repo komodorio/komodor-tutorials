@@ -5,7 +5,7 @@ metadata:
   labels:
     app: komodor-oomkilled
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: komodor-oomkilled
@@ -17,10 +17,10 @@ spec:
       containers:
       - name: komodor-oomkilled
         image: polinux/stress
-        command: ["stress"]
-        args: ["--vm", "10", "--vm-bytes", "100M", "--vm-hang", "120", "--backoff", "10000000", "--verbose"]
+        command: ["/bin/sh", "-c"]
+        args: ["echo 'Going to allocate 60MB of memory!' ; echo 'Going to allocate 60MB of memory!' ; echo 'Going to allocate 60MB of memory!' ; stress --vm 2 --vm-bytes 30M --vm-hang 120 --backoff 10000000 --verbose"]
         resources:
           requests:
-            memory: "120Mi"
+            memory: "40Mi"
           limits:
-            memory: "120Mi"
+            memory: "40Mi"
