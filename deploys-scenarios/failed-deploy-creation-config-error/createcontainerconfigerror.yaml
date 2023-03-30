@@ -20,12 +20,12 @@ spec:
         env: 
         - name: SECRET_TOKEN
           valueFrom:
-            secretKeyRef:
+            configMapKeyRef:
               name: api-access-tokenn
               key: SECRET_TOKEN
 ---
 apiVersion: v1
-kind: Secret
+kind: ConfigMap
 metadata:
   name: api-access-token
 data:
