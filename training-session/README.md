@@ -71,7 +71,7 @@ kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/m
 2. Wait it for it to be healthy and apply a new version of this deployment
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/failure-scenarios/application-error-with-exception/application-error.yaml [user]
+kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/failure-scenarios/application-error-with-exception/application-error.yaml -n [user]
 ```
 
 3. Fix the issue by reverting it back to the previous version or edit the yaml.
