@@ -116,3 +116,9 @@ kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/a
 4. Check why the deploy failed - beacuse of liveness probes failure (you can find it in the events of the pod)
 
 5. Change the configuration of the probes using the "edit YAML" button
+
+## Delete Your Namespace
+
+```bash
+kubectl delete ns [user]
+```
