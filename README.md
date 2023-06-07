@@ -2,17 +2,17 @@
 
 # Komodor Failure Scenarios
 
-This repository is your go-to repository to run scenarios on your clusters. It allows you simulate a day-to-day real life scenario besides edge cases. After running these scenario, you will be able to see how Komodor can help you to easily identify and remediate these scenarios.
+This is the go-to repository to run scenarios on your clusters. These use cases  enable you simulate  day-to-day real life experiences. Running these scenarios will demonstrate Komodor's ability to identify and remediate these scenarios.
 
 
 ## How to Use?
-Pick a scenario from the list below, apply it to your cluster. Check in Komodor the right resources (usually a service).
+Pick a scenario from the list below, apply it to your cluster. Open the [Komodor user interface](https://app.komodor.com/services) and navigate to the appropriate [Service](https://app.komodor.com/services) or ConfigMap.
 
 
 ## Before Starting
 
-Make sure you got the [Komodor agent running](https://docs.komodor.com/Learn/Install-Komodor-Agent.html) and configured on your clusters.
-Configure alerts to get alert in each failure.
+Make sure you have the [Komodor agent running](https://docs.komodor.com/Learn/Install-Komodor-Agent.html) and configured on your clusters.
+[Configure monitors](https://app.komodor.com/main/monitors) to generate alerts in each failure.
 
 
 ## Scenarios
