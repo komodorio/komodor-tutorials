@@ -41,6 +41,13 @@ kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/m
 <br>
 <br>
 
+### Application View
+
+Application views allow you to scope Komodor into your own application and get insights. 
+
+1. [Create a new application view](https://app.komodor.com/app-view/new), select dynamic scope for your own namespace.
+   
+
 ### Failed Deploy - Configuration Errors
 
 1. Deploy a new deployment
