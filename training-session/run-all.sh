@@ -11,3 +11,14 @@ kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/m
 kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/deploys-scenarios/failed-deploy-creation-config-error/healthy-deploy.yaml -n $NS_NAME
 kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/failure-scenarios/application-error-with-exception/simple-application.yaml -n $NS_NAME
 kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/failure-scenarios/OOMKilled/oom.yaml -n $NS_NAME
+
+echo "Trigger Scneario 1 - Image : (n/N/y/Y)":
+read ANSWER
+
+if [[ $ANSWER == "n" ]] ||  [[ $ANSWER == "N" ]]; then
+      echo "Skipping"   
+fi
+
+if [[ $ANSWER = "y" ]] ||  [[ $ANSWER = "Y" ]]; then
+      kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/deploys-scenarios/failed-deploy-image-pull-backoff/imagepullbackoff.yaml -n $NS_NAME
+fi
