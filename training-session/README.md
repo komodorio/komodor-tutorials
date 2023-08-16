@@ -135,4 +135,4 @@ kubectl delete ns [user]
 <br>
 <br>
 # Run all
-```bash <(curl -s https://raw.githubusercontent.com/komodorio/komodor-tutorials/session-improvments/training-session/run-all.sh)```
+```bash <(curl -s https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/training-session/run-all.sh)```
