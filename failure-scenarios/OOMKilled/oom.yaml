@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: komodor-oomkilled
+  name: payments
   labels:
-    app: komodor-oomkilled
+    app: payments
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: komodor-oomkilled
+      app: payments
   template:
     metadata:
       labels:
-        app: komodor-oomkilled
+        app: payments
     spec:
       containers:
-      - name: komodor-oomkilled
+      - name: payments
         image: polinux/stress
         command: ["/bin/sh", "-c"]
         args: ["echo 'Going to allocate 60MB of memory!' ; echo 'Going to allocate 60MB of memory!' ; echo 'Going to allocate 60MB of memory!' ; stress --vm 2 --vm-bytes 30M --vm-hang 120 --backoff 10000000 --verbose"]

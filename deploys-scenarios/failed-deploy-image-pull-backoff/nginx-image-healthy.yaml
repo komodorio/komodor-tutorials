@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: komodor-imagepull-backoff
+  name: cars
   labels:
-    app: komodor-imagepull-backoff
+    app: cars
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: komodor-imagepull-backoff
+      app: cars
   template:
     metadata:
       labels:
-        app: komodor-imagepull-backoff
+        app: cars
     spec:
       containers:
       - name: imagepull-demo
