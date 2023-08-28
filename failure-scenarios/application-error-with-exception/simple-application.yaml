@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: komodor-python-script
+  name: flights-python-script
 data:
   python-script: |-
     import time
@@ -40,19 +40,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    app: komo-application-error
+    app: flights
   labels:
-    app: komo-application-error
-  name: komo-application-error
+    app: flights
+  name: flights
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: komo-application-error
+      app: flights
   template:
     metadata:
       labels:
-        app: komo-application-error
+        app: flights
     spec:
       containers:
       - env:
@@ -65,10 +65,10 @@ spec:
         command: ["python"]
         args: ["/usr/share/app/code.py"]
         volumeMounts:
-          - name: komodor-python-script
+          - name: flights-python-script
             mountPath: /usr/share/app/code.py
             subPath: python-script
       volumes:
-      - name: komodor-python-script
+      - name: flights-python-script
         configMap:
-          name: komodor-python-script
+          name: flights-python-script

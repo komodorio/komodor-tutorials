@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: komodor-create-container-config-error
+  name: hotels
   labels:
-    app: komodor-create-error
+    app: hotels
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: komodor-create-error
+      app: hotels
   template:
     metadata:
       labels:
-        app: komodor-create-error
+        app: hotels
     spec:
       containers:
       - name: crash-demo

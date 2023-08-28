@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: komodor-create-container-config-error
+  name: hotels
   labels:
-    app: komodor-create-error
+    app: hotels
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: komodor-create-error
+      app: hotels
   template:
     metadata:
       labels:
-        app: komodor-create-error
+        app: hotels
     spec:
       containers:
       - name: crash-demo
@@ -21,12 +21,17 @@ spec:
         - name: SECRET_TOKEN
           valueFrom:
             configMapKeyRef:
-              name: api-access-tokenn
+              name: hotels-api-access-token
               key: SECRET_TOKEN
+        - name: API_ENDPOINT
+          valueFrom:
+            configMapKeyRef:
+              name: hotels-api-access-token
+              key: API_ENDPOINT
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: api-access-token
+  name: hotels-api-access-token
 data:
   SECRET_TOKEN: dmFsdWUtMg0KDQo=
