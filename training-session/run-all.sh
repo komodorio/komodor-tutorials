@@ -15,35 +15,11 @@ then
     kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/deploys-scenarios/failed-deploy-creation-config-error/healthy-deploy.yaml -n $NS_NAME
     kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/failure-scenarios/application-error-with-exception/simple-application.yaml -n $NS_NAME
     kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/failure-scenarios/OOMKilled/oom.yaml -n $NS_NAME
-else
-    echo "Skipping..."  
-fi
-
-echo ""
-echo "Trigger Scneario 1 - Image : (n/N/y/Y)"
-read ANSWER
-if [[ $ANSWER == "Y" ]] ||  [[ $ANSWER == "y" ]]
-then
+    sleep 5
     kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/deploys-scenarios/failed-deploy-image-pull-backoff/imagepullbackoff.yaml -n $NS_NAME
-else
-    echo "Skipping..."  
-fi
-
-echo ""
-echo "Trigger Scneario 2 - Configuration : (n/N/y/Y)"
-read ANSWER
-if [[ $ANSWER == "Y" ]] ||  [[ $ANSWER == "y" ]]
-then
+    sleep 5
     kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/deploys-scenarios/failed-deploy-creation-config-error/createcontainerconfigerror.yaml -n $NS_NAME
-else
-    echo "Skipping..."  
-fi
-
-echo ""
-echo "Trigger Scneario 3 - Crash : (n/N/y/Y)"
-read ANSWER
-if [[ $ANSWER == "Y" ]] ||  [[ $ANSWER == "y" ]]
-then
+    sleep 5
     kubectl apply -f https://raw.githubusercontent.com/komodorio/komodor-tutorials/master/failure-scenarios/application-error-with-exception/application-error.yaml -n $NS_NAME
 else
     echo "Skipping..."  
