@@ -21,8 +21,13 @@ spec:
         - name: SECRET_TOKEN
           valueFrom:
             configMapKeyRef:
-              name: api-access-tokenn
+              name: api-access-token
               key: SECRET_TOKEN
+        - name: API_ENDPOINT
+          valueFrom:
+            configMapKeyRef:
+              name: api-access-token
+              key: API_ENDPOINT
 ---
 apiVersion: v1
 kind: ConfigMap
